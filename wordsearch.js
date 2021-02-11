@@ -21,11 +21,20 @@ const wordSearch = (letters, word) => {
     let verticalJoin=verticalArr.map(a=> a.join(''))
   
     for (l of horizontalJoin) {
-        if (l.includes(word)) return true
-    }
-    for (l of verticalJoin) {
-        if (l.includes(word)) return true
-    }
+        if (l.includes(word)) {
+          return true;
+        } else if (l.includes(word.split("").reverse().join(""))) {
+          return true;
+        }
+      }
+      word.split("").reverse().join("");
+      for (l of verticalJoin) {
+        if (l.includes(word)) {
+          return true;
+        } else if (l.includes(word.split("").reverse().join(""))) {
+          return true;
+        }
+      }
 
      return false;
 }
